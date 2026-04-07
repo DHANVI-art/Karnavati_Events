@@ -1,44 +1,45 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-// Your Firebase config (same as you pasted in HTML)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBG1ClnAY4jRjXkA7Dz1-2907X0UtCIbF8",
+  authDomain: "event-registration-2344e.firebaseapp.com",
+  projectId: "event-registration-2344e",
+  storageBucket: "event-registration-2344e.firebasestorage.app",
+  messagingSenderId: "545732797546",
+  appId: "1:545732797546:web:06c62c991cda2b7fa4d613"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Form submit
-document.querySelector("form").addEventListener("submit", async (e) => {
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const name = document.querySelector("#name").value;
-  const email = document.querySelector("#email").value;
-  const kuId = document.querySelector("#kuId").value;
-  const enrollmentNo = document.querySelector("#enrollmentNo").value;
-  const mobileNo = document.querySelector("#mobileNo").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const kuId = document.getElementById("kuId").value;
+  const enrollmentNo = document.getElementById("enrollmentNo").value;
+  const mobileNo = document.getElementById("mobileNo").value;
+  const event = document.getElementById("event").value;
 
   try {
     await addDoc(collection(db, "registrations"), {
-      name: name,
-      email: email,
-      kuId: kuId,
-      enrollmentNo: enrollmentNo,
-      mobileNo: mobileNo
+      name,
+      email,
+      kuId,
+      enrollmentNo,
+      mobileNo,
+      event
     });
 
-    alert("Registration Successful 🎉");
-    document.querySelector("form").reset();
+    document.getElementById("message").innerText = "✅ Registration Successful!";
+    form.reset();
 
   } catch (error) {
     console.error(error);
-    alert("Error saving data ❌");
+    document.getElementById("message").innerText = "❌ Error saving data";
   }
 });
