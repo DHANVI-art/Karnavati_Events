@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Karanavati University Events</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="glass-card">
+    <h1>Karanavati University</h1>
+    <p class="subtitle">✨ Event Registration ✨</p>
+
+    <form id="registrationForm">
+
+        <div class="input-box">
+            <input type="text" id="name" required>
+            <label>Full Name</label>
+        </div>
+
+        <div class="input-box">
+            <input type="email" id="email" required>
+            <label>Email</label>
+        </div>
+
+        <div class="input-box">
+            <input type="tel" id="phone" required>
+            <label>Mobile Number</label>
+        </div>
+
+        <select id="event" required>
+            <option value="">🎉 Choose Event</option>
+            <option>Tech Fest 🚀</option>
+            <option>Cultural Fest 🎭</option>
+            <option>Sports Meet ⚽</option>
+        </select>
+
+        <button type="submit">Register Now 🚀</button>
+
+    </form>
+
+    <p id="message"></p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
