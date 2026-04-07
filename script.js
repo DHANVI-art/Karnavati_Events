@@ -1,38 +1,44 @@
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSy...",
-    authDomain: "event-registration-2344e.firebaseapp.com",
-    projectId: "event-registration-2344e",
-    storageBucket: "event-registration-2344e.firebasestorage.app",
-    messagingSenderId: "545732797546",
-    appId: "1:545732797546:web:066c2c991cda2b7fa4d613"
-  };
+// Your Firebase config (same as you pasted in HTML)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  // FORM SUBMIT
-  document.getElementById("registrationForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+// Form submit
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const event = document.getElementById("event").value;
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
+  const kuId = document.querySelector("#kuId").value;
+  const enrollmentNo = document.querySelector("#enrollmentNo").value;
+  const mobileNo = document.querySelector("#mobileNo").value;
 
-    try {
-      await addDoc(collection(db, "registrations"), {
-        name: name,
-        email: email,
-        event: event,
-        createdAt: new Date()
-      });
+  try {
+    await addDoc(collection(db, "registrations"), {
+      name: name,
+      email: email,
+      kuId: kuId,
+      enrollmentNo: enrollmentNo,
+      mobileNo: mobileNo
+    });
 
-      alert("Registration Successful!");
-    } catch (error) {
-      console.error(error);
-    }
-  });
-</script>
+    alert("Registration Successful 🎉");
+    document.querySelector("form").reset();
+
+  } catch (error) {
+    console.error(error);
+    alert("Error saving data ❌");
+  }
+});
