@@ -19,7 +19,7 @@ A modern web-based event registration system built using **HTML, CSS, JavaScript
 
 * **Frontend:** HTML, CSS, JavaScript
 * **Backend/Database:** Firebase Firestore
-* **Hosting (optional):** Render / Firebase Hosting
+* **Hosting (optional):**  Firebase Hosting
 
 ---
 
@@ -77,10 +77,6 @@ OR use Live Server (VS Code recommended)
 ## 📸 Screenshots
 
 * Registration Form UI
-* Success Message after submission
-* Firebase Firestore Data
-
-*(Add screenshots here for better presentation)*
 
 ---
 
@@ -104,14 +100,6 @@ OR use Live Server (VS Code recommended)
 
 ---
 
-## 🌐 Future Improvements
-
-* 🔑 User authentication (Login/Signup)
-* 📊 Admin dashboard to view registrations
-* 📧 Email confirmation system
-* 📅 More event categories
-
----
 
 ## 👩‍💻 Authors
 
@@ -120,8 +108,3 @@ OR use Live Server (VS Code recommended)
 
 ---
 
-## ⭐ Show Your Support
-
-If you like this project, please ⭐ the repository!
-
----
